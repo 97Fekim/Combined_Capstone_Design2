@@ -1,0 +1,9 @@
+1. sliding 방식이 아닌 region Proposal 방식을 사용하는 방식의 object detection 모델 학습
+2. 초기의 RCNN은 성능은 좋은데 속도가 너무 느렸다(50초)
+3. 이유는 2000개의 제안된 region을 모두 네트워크에서 수행해야 하기 때문이다.
+4. 이를 보완하는 방법으로 SPPNet 방식이 쓰임, (network는 한번 수행, 하지만 원본의 ROI별로 마지막에 적용)
+5. faster RCNN은 region proposal을 하는 부분까지 network로 만들어버려서 속도를 빠르게한(gpu를 사용가능하기에)모델이다.
+6. faster RCNN은 RPN + RCNN 인데 RPN은 anchor box를 이용하는 모델이다.
+7. faster RCNN 중 RPN(Regional Proposal Network)에서 Bounding Box를 추출할 때 Objectness Score 를 이용하는데 이는 Softmax 값 * Ground Truth의 IOU 값이다.
+ >> Objectness Score = Softmax() * IOU with Ground Truth
+ N < 1000 으로 설정한다면, Objectness Score가 top1000 인 Bounding Box들만 후보에 오른다.
