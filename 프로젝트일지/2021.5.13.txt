@@ -1,0 +1,5 @@
+	trainloss, valloss, solderAP, voidAP, mAP
+
+original : 0.125, 0.223, 0.975, 0.948, 0.962
+stretch : 0.12, 0.248, 0.995, 0.938, 0.966
+clahe : 0.136, 0.328, 1, 0.965, 0.983
